@@ -1,0 +1,42 @@
+services:
+  postgresdb:
+    image: postgres:14-alpine
+    container_name: postgres_groupe_c
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=groupe_c
+      - POSTGRES_USER=groupe_c
+      - POSTGRES_DB=usergroupe_c_db
+
+  mongodb:
+    image: mongo
+    container_name: mongodb_groupe_c
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass12345
+      - MONGO_INITDB_DATABASE=groupe_cNoSQL
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+      - "8081:8081"
+    depends_on:
+      - postgresdb
+      - mongodb
+    expose:
+      - 8081
+      - 3000
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+

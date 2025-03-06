@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "boreal-antonym-425218-t7",
+  "private_key_id": "5f93876e895e5818616def3d95fa71ee6609be8f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDO8jQct6reWnm2\nEufqo0CJJ/fnnNJLX84XPcV9dEQ5u4li4h4MaQq0MnOAjLexvQ9XYry6wZT8On46\n3LCoTw92Ahp/lX1FhjWmuJO2Ya2IWuQlm7hoEKaGsuvwztBgigIZ8N9aOWBYBk+6\n8VNF3+3K8kInAq6kRvfvPgjkCOasnawZDvbXQCrxOCWzpSiKXS4xciWYSx/tob2C\nsqql25Ahn5FsAKvD53bAtUMf20UyaRHNQhFiV3DxfVrd050LMQ4Do87WXNvZtB6s\nNQo+VqKhtXpqHOa3gmZR7bdhi18gO3jzLgcyy12+JMwJ8AavoB2eK1B4hOZbIofk\n4c+wkqvbAgMBAAECggEALeJwAYoLvb9ryx4IA/NshLyy78zKp+G3LVoJ5tYXpoFZ\nZe5i4TeNIwUorPEGbcdQlnyTAgmYAhDqGh0Col7dO7odq/o2S2sFjFDSl5ayxk/4\n1Anh6lj+w1D6lWsVssIG0z+gFj4wiXPky7tkTlLnQ59RYZrrpAsEQCyOBhmfI9hv\nwqugKF8YzWdpWcqGJSOg8g5bpLgXe1K/Qb869u+pPklcI392aujVL+iYR0izXyS/\n4Zf8B0X091BCEkem8RclURhcssdaBipI6qcogwMWfc4TEqeI0T5M8CCnjucc+uaB\ncORbmAdiEVwG4douMvW0ZH4yIc8S7xCabniPsdcY8QKBgQDvEFkoDDZrUcA85Cl5\nTUd3+z6+7WAOt58fhNtv9GqG7LJYtnHHze42TGH3zlfikvVYS9dfJDHGUyO+RHS3\nhT4Udv+ycPGlpotiXkGFBC4ijg49zeZhA6pomkOVJIZIFEpL6f8cf7qYphLnOdVI\ndYAwkF4WfSMnnGAm6ns3x/KYqQKBgQDdm15/mjusaThnElOAB5WdBjSRsDDGswCd\nvHig2qfOPesnHKCrA7X8hp2+FLuyZc4wqhAPk2YE3kewHB12FFUP2VFvg1mdhHVe\nyreVL4Y3cRGmDkaQQmKILvo+/3hYh9rmwKxTx/XUvi8HZfC08K3ULKy/FQd+wYQK\nEdUI3XWe4wKBgFewUHOvHxr4bqInMstKvGdXIinYWj6rvdNK4U7MgXKiSbzelxeq\nArGqDNlft77lFtdfYk2EsjlD771v0LwsRJwvFhV29jxDvabEWhYXdXC5WKH074cw\nWAZsZ1PChPrVbncwCqKCe4hYimCERyZ/6xhlLA3lssppwp8jrTTFw8eZAoGBAM0M\nVgP70ftV4Lp+WoS8f9MrSrkDLh6swoUxPuyXZW2QHWWzN3cFl/5xEMQwqvwG9yJQ\nOUwwNtWKVwq8+QWpCov/qTplbyYwyelL6VJBBw+Fr67WxrP0uPcJgMOJ3vELw6B/\n5vQesXiIATv3NyI1EKKiM7Ua4DSJGoO2vEfXol3BAoGAJdgwKoSrPVj5c0y5azv9\na/gO9pnmIMNhNu2s3r6XkOEGddCib3QryNmS1wgwKi3h0P3m/sBgZdulpbPwD7Ay\nwtNfJ8b26AsY6d8YvQuIx8GcwQYgcPQ1SE91treU0W14ydj1xbhJNhwjeZbiTROw\nyrv2BPOgMDiBJR4FqCP39Q4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "boreal-antonym-425218-t7@appspot.gserviceaccount.com",
+  "client_id": "102637376878705414773",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/boreal-antonym-425218-t7%40appspot.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
