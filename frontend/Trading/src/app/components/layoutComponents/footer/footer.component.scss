@@ -1,0 +1,36 @@
+.app-footer {
+  padding-top: 60px;
+  background-color: #123456;
+  color: #ffffff;
+  margin-bottom: 0px;
+  padding: 60px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-links a, .footer-social a {
+  color: #ffffff;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-links, .footer-social {
+    margin-bottom: 10px;
+  }
+}

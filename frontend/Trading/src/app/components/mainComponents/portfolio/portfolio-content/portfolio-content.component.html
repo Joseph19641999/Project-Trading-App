@@ -1,0 +1,24 @@
+<section class="items_">
+
+
+  <section>
+    <h2>Portfolio Kurve</h2>
+    <div id="chart">
+      <canvas #canvas id="canvas" width="780px" height="350px"></canvas>
+    </div>
+  </section>
+
+
+  <section class="portfolio">
+    <mat-tab-group (selectedTabChange)="onTabChange($event)" #tabGroup>
+      <mat-tab label="Aktien">
+        <app-stocktable></app-stocktable>
+      </mat-tab>
+      <mat-tab label="Fonds">
+        <app-fundtable></app-fundtable>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+
+  
+</section>

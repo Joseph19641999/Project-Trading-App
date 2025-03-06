@@ -1,0 +1,58 @@
+<section id="overview">
+
+    <div class="overview-nav">
+        <a (click)="routeBack()"><i class="material-icons">arrow_back</i> Zurück</a>
+    </div>
+
+    <hr>
+
+    <div class="overview-info">
+        
+        <div class="overview-info-stock">
+
+            <div class="overview-info-stock-image">
+                <img [src]="assetData?.image" alt="Stock_Company_Logo" (error)="imageError()">
+            </div>
+
+            <div class="overview-info-stock-name">
+                <div>
+                    <h1>{{assetData?.companyName}}</h1>
+                </div>
+                <div>
+                    <span>{{assetData?.symbol}}</span>
+                    <span>{{assetData?.exchangeShortName}}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="overview-info-action">
+
+            <div class="overview-info-fav" *ngIf="!isFavorite">
+                <button class="fav-button" mat-button (click)="addFavorite()">
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+                <div class="fav-text">
+                    Favoriten hinzufügen
+                </div>
+            </div>
+            
+            <div class="overview-info-fav" *ngIf="isFavorite">
+                <button class="fav-button" mat-button (click)="addFavorite()">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <div class="fav-text">
+                    Favoriten entfernen
+                </div>
+            </div>
+
+
+            <div class="overview-info-buttons">
+                <div>
+                    <button mat-raised-button color="accent" class="buy_button" (click)="openBuyWindow()">Kaufen</button>
+                    <button mat-raised-button color="accent" class="sell_button" (click)="openSellWindow()">Verkaufen</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,26 @@
+
+/*  header  --------------------------- */
+
+
+header{
+  display: flex;
+  flex-direction: column;
+  background-color: #123456;
+  color: white;
+
+}
+
+
+header div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  padding: 1em;
+}
+
+header i {
+  letter-spacing: 2px;
+}
+
+

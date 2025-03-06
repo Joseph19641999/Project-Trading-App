@@ -1,0 +1,262 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div class="profileMainLayout">
+
+    <p class="profileTitel">Ihr Profil</p>
+
+    <div class="usernameProfile">
+
+        <div class="privateDataUsername">
+
+            <form (ngSubmit)="submitEmailChange()">
+
+                <div class="form_row">
+                    <label for="usernameFirstname">Vorname: </label>
+                    <div class="displayUserInfor"> {{ userData?.vorname}}</div>
+                </div><br>
+
+                <div class="form_row">
+                    <label for="usernameLastname">Nachname: </label>
+                    <div class="displayUserInfor"> {{ userData?.nachname }}</div>
+                </div><br>
+
+                <div class="form_row">
+                    <label for="usernameBirthday">Geburtsdatum </label>
+                    <div class="displayUserInfor"> {{ userData?.geburtsdatum }}</div>
+                </div><br>
+
+
+                <div class="form_row">
+                    <label for="usernameEmail">Email-Adresse:</label>
+                    <div class="displayUserInfor"> {{ userData?.email }}</div>
+                    <span>
+                        <a href="javascript:void(0)" (click)="toggleChangeProfileInterface()">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                    </span>
+
+                </div> <br>
+
+                <div class="changeEmail" *ngIf="isProfileEditing">
+
+                    <div class="form_row">
+                        <label for="usernameLastname">Aktuelle Email: </label>
+                        <div> {{ userData?.email }}</div>
+                    </div><br>
+
+                    <div class="form_row">
+                        <label for="userNewEmail">Neue Email: </label>
+                        <input
+                            type="text"
+                            id="userNewEmail"
+                            name="userNewEmail"
+                            [(ngModel)]="userEmail.userNewEmail"
+                            [disabled]="!isProfileEditing"
+                        >
+                    </div><br>
+
+                    <div class="form_row">
+                        <label for="userNewEmailConfirm">Bestätigung neue Email: </label>
+                        <input
+                            type="text"
+                            id="userNewEmailConfirm"
+                            name="userNewEmailConfirm"
+                            [(ngModel)]="userEmail.userNewEmailConfirm"
+                            [disabled]="!isProfileEditing"
+                        >
+                    </div><br>
+
+                    <div class="matchPasswordStatus" *ngIf=" userEmail.userNewEmail == '' && userEmail.userNewEmailConfirm == '' " style="color: orange;">
+                        <span><i class="fa-solid fa-bell" style="color: orange;"></i></span>
+                        Bitte geben Sie ihre neue Email an. 
+                    </div>
+
+                    <div class="matchPasswordStatus" *ngIf=" userEmail.userNewEmail != userEmail.userNewEmailConfirm " style="color: red;">
+                        <span><i class="fa-solid fa-circle-exclamation" style="color: #e55c52;"></i></span>
+                        Emails stimmen nicht überein.
+                    </div>
+
+                </div>
+
+
+                <div class="changePrivateInforButtonWrap" *ngIf="isProfileEditing">
+                    <button
+
+                        id="usernameInforChangeSubmit"
+                        type="submit"
+                        *ngIf="userEmail.userNewEmail === userEmail.userNewEmailConfirm"
+
+                    >Bestätigen</button>
+                </div>
+
+                <div class="emailChangeSuccess" *ngIf="isChangeEmailSuccess">
+                    <span><i
+                        class="fa-solid fa-check"
+                        style="color: rgb(100, 221, 23); border: 2px solid rgb(100, 221, 23); border-radius: 50%;">
+                    </i></span>
+                Email erfolgreich geändert!
+                </div>
+
+            </form>
+
+
+        </div>
+
+        <div id="currentPasswordField" class="form_row" style="padding-left: 1rem;">
+
+            <a>
+                <i class="material-icons">account_circle</i>
+                Passwort ändern
+            </a>
+
+            <span>
+                <a href="javascript:void(0)" (click)="toggleChangePasswordInterface()">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+            </span>
+
+
+
+        </div><br>
+
+        <div class="passwordChangeSuccess" *ngIf="isPasswordChangeSuccess">
+
+            <span><i
+                class="fa-solid fa-check"
+                style="color: rgb(100, 221, 23); border: 2px solid rgb(100, 221, 23); border-radius: 50%;">
+            </i></span>
+            Passwort Änderung erfolgreich!
+        </div>
+
+        <form class="usernameProfile__password" *ngIf="showChangePasswordInterface" (ngSubmit)="submitChangePassword()">
+
+            <div class="form_row">
+                <label for="userCurrentPassword">Aktuelles Passwort: </label>
+                <input
+                    type="password"
+                    id="userCurrentPassword"
+                    name="userCurrentPassword"
+                    [(ngModel)] = "userPassword.userCurrentPassword"
+                >
+            </div><br>
+
+
+            <div class="form_row">
+            <label for="newPassword">Neues Passwort: </label>
+            <input
+                type="password"
+                id="newPassword"
+                name="newPassword"
+                [(ngModel)] = "userPassword.userNewPassword"
+            >
+        </div><br>
+
+            <div class="form_row">
+                <label for="confirmNewPassowrd">Bestätigung neues Passwort: </label>
+                <input
+                    type="password"
+                    id="confirmNewPassowrd"
+                    name="confirmNewPassowrd"
+                    [(ngModel)] = "userPassword.userConfirmNewPassword"
+                >
+
+            </div><br>
+
+
+          <div class="matchPasswordStatus" *ngIf=" userPassword.userCurrentPassword == ''  " style="color: orange;"> <!--&& !isCurentPasswordMatch()-->
+            <span><i class="fa-solid fa-bell" style="color: orange;"></i></span>
+            Bitte geben Sie Ihr aktuelles Passwort an. </div>
+
+            <div class="matchPasswordStatus" *ngIf=" userPassword.userNewPassword == '' && userPassword.userConfirmNewPassword == '' " style="color: orange;">
+                <span><i class="fa-solid fa-bell" style="color: orange;"></i></span>
+                Bitte geben Sie Ihr neues Passwort an.</div>
+
+            <div class="matchPasswordStatus" *ngIf=" userPassword.userNewPassword != userPassword.userConfirmNewPassword " style="color: red;">
+                <span><i class="fa-solid fa-circle-exclamation" style="color: #e55c52;"></i></span>
+                Passwörter stimmen nicht überein</div>
+
+            <div class="matchPasswordStatus" *ngIf=" userPassword.userNewPassword == userPassword.userConfirmNewPassword && userPassword.userNewPassword != '' && userPassword.userConfirmNewPassword!= '' " style="color: rgb(100, 221, 23);">
+                <span><i
+                    class="fa-solid fa-check"
+                    style="color: rgb(100, 221, 23); border: 2px solid rgb(100, 221, 23); border-radius: 50%;">
+                </i></span>
+                Gültig
+            </div>
+
+            <div class="changePasswordButtonWrap" > <!--*ngIf="isPasswordMatch()"-->
+                <button
+                    class="confirmChangePasswordButton"
+                    type="submit"
+                >Bestätigen</button>
+            </div>
+
+        </form>
+
+        <div class="usernameBudget">
+
+            <div class="layoutWrap">
+
+                <p> Ihr aktuelles Budget: {{ userData?.budget | currency}}  </p>
+
+                <div>
+                    <button (click)="chargeBudgetHandle()" id="budgetCharge">Budget auffüllen</button>
+                </div>
+
+            </div>
+
+
+
+            <div class="budgetChargeLayout" *ngIf="isChargeBudgetButtonClicked">
+
+                <p id="budgetChargeLayout__titel">Budget auffüllen</p>
+
+                <form  (ngSubmit)="chargeSubmit()">
+
+                    <div>
+                        <label for="chargingBudgetValue">Betrag: </label>
+                        <input
+                            id="chargingBudgetValue"
+                            type="number"
+                            min="0"
+                            name="chargingBudget"
+                            placeholder="put your amount here"
+                            [(ngModel)]="chargeValue"
+                        >
+                    </div>
+
+                    <div style="color: red; text-align: center;" *ngIf="chargeValue < 0 ">
+                        <span><i class="fa-solid fa-circle-exclamation" style="color: #e55c52;"></i></span>
+                        Invalid budget!</div>
+
+                    <div style="color: greenyellow; text-align: center;" *ngIf="chargeValue > 0">
+                        <span><i class="fa-solid fa-check" style="color: #d8dadf;"></i></span>
+                        valid </div><br>
+
+                    <p>Betrag aufgefüllt um: {{ chargeValue !== undefined ? chargeValue: ''}}</p><br>
+
+                    <div class="chargeBudgetButtonStatus">
+
+                        <button
+                            class="chargeBudgetButtonCommit"
+                            type="submit"
+                            [disabled]="chargeValue < 0 || chargeValue === null || chargeValue === undefined"
+                        >Bestätigen</button>
+
+                        <button
+                            class="chargeBudgetButtonCancel"
+                            type="button"
+                            (click)="cancelChargeBudgetHandle()"
+                        >Abbrechen</button>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<aside class="window">
+
+  <div class="aside-div">
+    <div class="aside-content">
+      <a class="nav-link1" routerLink="/stocks-mainpage" routerLinkActive="activebutton">
+        <i class="material-icons">home</i>Home
+      </a>
+
+      <a *ngIf="view == 1" class="nav-link" routerLink="/transaction" routerLinkActive="activebutton">
+        <i class="material-icons">monetization_on</i> Transaktionen
+      </a>
+      <a *ngIf="view == 1" class="nav-link" routerLink="/portfolio" routerLinkActive="activebutton">
+        <i class="material-icons">account_balance</i> Portfolio
+      </a>
+
+      <a *ngIf="view == 2" class="nav-link" routerLink="/profile" routerLinkActive="activebutton">
+        <i class="material-icons">account_circle</i> Profil
+      </a>
+      <a *ngIf="view == 2" class="nav-link" routerLink="/portfolio" routerLinkActive="activebutton">
+        <i class="material-icons">account_balance</i> Portfolio
+      </a>
+
+      <a *ngIf="view == 3" class="nav-link" routerLink="/profile" routerLinkActive="activebutton">
+        <i class="material-icons">account_circle</i> Profil
+      </a>
+      <a *ngIf="view == 3" class="nav-link" routerLink="/transaction" routerLinkActive="activebutton">
+        <i class="material-icons">monetization_on</i> Transaktionen
+      </a>
+
+    </div>
+
+    <div class="aside-logout">
+      <a class="nav-link2 logout" (click)="logout()">
+        <i class="material-icons">logout</i> Abmelden
+      </a>
+    </div>
+
+  </div>
+
+  
+
+
+</aside>

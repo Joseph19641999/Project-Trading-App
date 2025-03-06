@@ -1,0 +1,60 @@
+
+
+<section id="content">
+
+
+  <div class="content-upper">
+
+    <div class="content-upper-chart">
+
+      <div class="content-upper-chart-core">
+        <h2>{{ assetData?.price }} {{ assetData?.currency }}</h2>
+        <h3 [ngClass]="{'positive': (assetData?.changes ?? 0) >= 0, 'negative': (assetData?.changes ?? 0) < 0}">
+          {{ assetData?.changes ?? 'N/A' }} {{ assetData?.currency ?? '' }} 
+          ({{ assetData && assetData.changes && assetData.price ? ((assetData.changes / assetData.price) * 100 | number:'1.2-2') : 'N/A' }} %)
+          <i *ngIf="(assetData?.changes ?? 0) >= 0" class="material-icons">trending_up</i>
+          <i *ngIf="(assetData?.changes ?? 0) < 0" class="material-icons">trending_down</i>
+        </h3>
+        <h4>{{ currentDate | date: 'dd/MM/yyyy - HH:mm:ss' }} - {{ assetData?.currency }}</h4>
+      </div>
+
+
+      <div class="content-upper-chart-graph">
+        <app-asset-chart [historicalData]="historicalData"></app-asset-chart>
+      </div>
+
+    </div>
+
+
+
+    <div class="content-upper-info">
+      <table>
+        <tr><th>Name</th><td>{{ assetData?.companyName }}</td></tr>
+        <tr><th>Symbol</th><td>{{ assetData?.symbol }}</td></tr>
+        <tr><th>Sektor</th><td>{{ assetData?.sector }}</td></tr>
+        <tr><th>Angestellte</th><td>{{ (isNumber(assetData?.fullTimeEmployees) && assetData?.fullTimeEmployees !== undefined) ? (assetData?.fullTimeEmployees | number:'.0-2') : assetData?.fullTimeEmployees }}</td></tr>
+        <tr><th>CEO</th><td>{{ assetData?.ceo }}</td></tr>
+        <tr><th>ISIN</th><td>{{ assetData?.isin }}</td></tr>
+        <tr><th>Durch. Volumen</th><td>{{ assetData?.volAvg | number:'1.2-2'}}</td></tr>
+        <tr><th>Marktkapitalisierung</th><td>{{ transformCapital(assetData?.mktCap)}}</td></tr>
+        <tr><th>Hauptbörse</th><td>{{ assetData?.exchangeShortName }}</td></tr>
+        <tr><th>Land</th><td>{{ assetData?.country }}</td></tr>
+        <tr><th>Stadt</th><td>{{ assetData?.city }}</td></tr>
+        <tr><th>Website</th><td><a [href]="assetData?.website" target="_blank">{{ assetData?.website }}</a></td></tr>
+      </table>
+    </div>
+
+
+
+  </div>
+
+</section>
+
+<section id="inventar">
+
+  <div class="content-upper-description">
+    <h2>Beschreibung</h2>
+    <p>{{ assetData?.description }}</p>
+  </div>
+
+</section>

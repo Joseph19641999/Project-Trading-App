@@ -1,0 +1,38 @@
+.portfolio {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "a a a"
+        "b c c"
+        "b c c"
+        "d d d";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+}
+
+app-header {
+    margin: 0;
+    padding: 0;
+    grid-area: a;
+
+}
+
+app-side-bar {
+    padding: 0;
+    grid-area: b;
+
+}
+
+app-portfolio-content {
+    margin: 0;
+    padding: 0;
+    grid-area: c;
+}
+
+app-footer {
+    margin: 0;
+    padding: 0;
+    grid-area: d;
+}

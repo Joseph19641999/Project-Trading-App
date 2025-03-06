@@ -1,0 +1,108 @@
+.chart {
+  margin-bottom: 25px;
+  margin: 10px 50px;
+  justify-content: space-between;
+  display: block;
+}
+
+.li-value {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.li-value label {
+  font-weight: 250;
+}
+
+.chart ul {
+  width: 60%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td,
+tr {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+
+#chart {
+  width: 100%;
+}
+
+.donut {
+  width: 100%;
+}
+
+.route:hover{
+  display: flex;
+  cursor: pointer;
+  color: lightblue;
+  font-weight: 500;
+  align-items: center;
+}
+
+
+
+.buy_button_icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 20px;
+
+}
+
+.buy_button_table {
+  background-color: chartreuse;
+  border: none;
+  color: #0c2641;
+  border-radius: 5px;
+  width: 110px;
+  margin: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  align-content: space-between;
+  font-size: 12px;
+
+}
+
+.sell_button_table {
+  background-color: coral;
+  border: none;
+  color: #0c2641;
+  border-radius: 5px;
+  width: 110px;
+  margin: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  align-content: space-between;
+  font-size: 12px;
+
+
+
+}
+
+.sell_button_icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 24px;
+}
+
+.stocktable_div {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  width: 100%;
+}
+
+
+.chartdonut {
+  width: 100px;
+  height: 200px;
+}

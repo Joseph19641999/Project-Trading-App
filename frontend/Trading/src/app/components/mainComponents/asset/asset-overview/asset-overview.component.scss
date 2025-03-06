@@ -1,0 +1,180 @@
+#overview{
+  display: flex;
+  flex-direction: column;
+  background-color: #345678;
+  height: 100%;
+  margin: 10px 5px;
+  border-radius: 0.5em;
+}
+
+
+
+.overview-nav{
+  font-size: 1.5em;
+  margin: 0.5em 0.5em 0 0.5em;
+}
+.overview-nav a{
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+}
+
+
+
+.overview-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5em;
+  margin: 0.2em 0.5em 0.5em 0.5em;
+}
+
+
+
+.overview-info-stock{
+  display: flex;
+  height: 180px;
+  color: white;
+}
+.overview-info-stock img{
+  height: 95%;
+}
+.overview-info-stock-image{
+  display: flex;
+  align-items: center;
+  margin: 0 1em 0 0.5em;
+  height: 100%;
+}
+
+
+
+
+
+.overview-info-stock-name{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:flex-start;
+  width: 80%;
+  height: 100%;
+
+}
+.overview-info-stock-name h1{
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1;
+}
+.overview-info-stock-name > div:nth-child(2){
+  display: flex;
+  justify-content: space-around;
+  padding: 0.2em;
+  border: 1.5px solid lightgrey;
+  border-radius: 0.2em;
+}
+.overview-info-stock-name span{
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  height: 0.9em;
+  width: 100%;
+  padding: 0 0.4em;
+  color: lightgrey;
+}
+.overview-info-stock-name span:first-child{
+  border-right: 1.5px solid lightgrey;
+}
+
+
+.overview-nav a{
+  display: flex;
+  align-items: center;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+
+
+.overview-info-action{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 35vw;
+}
+
+.overview-info-fav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 10vw;
+}
+
+.overview-info-fav div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overview-info-fav button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: auto;
+}
+
+.overview-info-fav mat-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+  font-size: 6em;
+  color: rgb(157, 39, 39);
+}
+
+.fav-text{
+  line-height: 1.5;
+  font-size: 0.6em;
+  font-weight: 500;
+}
+
+
+
+#overview .overview-info-buttons div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#overview .buy_button,#overview .sell_button{
+  width: 20vh;
+  height: 4em;
+}
+
+#overview .buy_button{
+  background-color: rgb(94, 227, 94);
+  margin-bottom: 1em;
+}
+#overview .buy_button:hover{
+  background-color: rgb(89, 191, 89);
+  cursor: pointer;
+}
+#overview .sell_button{
+  background-color: lightcoral;
+}
+#overview .sell_button:hover{
+  background-color: rgb(179, 87, 87);
+  cursor: pointer;
+}
+
+
+
+hr{
+  margin: 1em 0;
+  color: #123456;
+}

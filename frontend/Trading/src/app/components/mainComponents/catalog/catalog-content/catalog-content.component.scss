@@ -1,0 +1,39 @@
+
+.search-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+mat-form-field {
+    width: 100%;
+    max-width: 500px;
+}
+
+.table-container {
+    margin: 20px 40px;
+    margin-bottom: 50px;
+}
+
+.table-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mat-button-toggle-group {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.mat-button-toggle {
+    flex: 1;
+}
+
+.content {
+    height: 80%;
+}
+mat-icon{
+  color: green;
+}

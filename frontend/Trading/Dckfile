@@ -1,0 +1,93 @@
+version: "3"
+services:
+nginx:
+build: ./backend/storage
+image: nginx-image:latest
+ports:
+- "8080:80"
+volumes:
+- image_storage:/images
+networks:
+- image-protection-nt
+
+rabbitmq:
+image: rabbitmq:3-management
+ports:
+- "15672:15672"
+- "5672:5672"
+healthcheck:
+test: ["CMD", "rabbitmqctl", "status"]
+interval: 30s
+timeout: 10s
+retries: 5
+networks:
+- image-protection-nt
+
+
+ml-service:
+build: ./backend/ml
+image: ml-service-image:v1
+depends_on:
+- rabbitmq
+restart: always
+networks:
+- image-protection-nt
+
+environment:
+NGINX_URL: 'http://nginx'
+RABBITMQ_HOST: 'rabbitmq'
+RABBITMQ_PORT: 5672
+RABBITMQ_USERNAME: 'guest'
+RABBITMQ_PASSWORD: 'guest'
+RABBITMQ_QUEUE: 'image_processing_queue'
+MAIN_SERVER_URL: 'http://backend:3001'
+
+deploy:
+resources:
+reservations:
+devices:
+- driver: nvidia
+capabilities: [gpu]
+
+frontend:
+build: ./ui
+image: frontend-image:v1
+ports:
+- "3000:80"
+networks:
+- image-protection-nt
+
+backend:
+build: ./backend
+image: backend-image:v1
+depends_on:
+rabbitmq:
+condition: service_healthy
+ports:
+- "3001:3001"
+volumes:
+- image_storage:/app/storage/images
+restart: always
+networks:
+- image-protection-nt
+
+environment:
+NGINX_URL: 'http://nginx'
+RABBITMQ_URL: 'amqp://rabbitmq'
+JWT_SECRET: '40d4990c1f71a423548fbb4e4be6db3374fd86e7e217da131639743c278320fb'
+#MULTI_USER_MODE: false
+mydata:
+build: ./backend/mydata
+image: mydata-image:v1
+ports:
+- "9552:9552"
+networks:
+- image-protection-nt
+
+environment:
+BACKEND_SERVER_URL: 'http://backend:3001'
+
+volumes:
+image_storage:
+networks:
+image-protection-nt:

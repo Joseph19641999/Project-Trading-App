@@ -1,0 +1,31 @@
+<body><div class="homepage">
+  <div class="main-banner">
+    <div class="overlay"></div>
+    <div class="text-box">
+      <h1>Wilkommen zur XBörse</h1>
+      <p>Erleben Sie die Zukunft des Handels mit Echtzeitdaten und globalen Einblicken.</p>
+      <p>Treten Sie XBörse bei und handeln Sie mit den Besten.</p>
+      <a class="btn-primary" (click)="checkRoute()">
+        {{ isLoggedIn ? 'Aktien ansehen' : 'Loslegen' }}
+      </a>
+    </div>
+  </div>
+
+  <div class="market-stats">
+    <h2>Markt Übersicht</h2>
+    <div class="stats-grid">
+      <ng-container *ngFor="let element of showcaseData">
+        <div class="stat">
+          <p class="label">{{element?.companyName}}</p>
+          <p class="value">{{element?.price | currency}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+</body>

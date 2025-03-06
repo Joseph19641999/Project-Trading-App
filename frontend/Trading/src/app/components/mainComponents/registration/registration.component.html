@@ -1,0 +1,79 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="#">
+          <span>XBörse</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="activebutton">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <section *ngIf="!isLoggedIn">
+
+    <div class="home_zürück">
+      <i class="fas fa-arrow-left"></i>
+      <a class="nav-link-zuruck" routerLink="/homepage" routerLinkActive="activebutton">Home</a>
+    </div>
+
+    <div class="anmeldung_div">
+      <p>Registrierung</p>
+
+      <form [formGroup]="registrationForm" (ngSubmit)="registry_process()" class="user_daten_div">
+        <input formControlName="vorname" class="username_input" id="Vorname_input" placeholder="Vorname" required>
+        <input formControlName="nachname" class="password_input" id="Nachname_input" placeholder="Nachname" required>
+        <input type="email" formControlName="email" class="password_input" id="EMail_input" placeholder="Email" required>
+        <label class="password_input">Geburtsdatum</label>
+        <input type="date" formControlName="geburtsdatum" class="password_input" id="geburtsadatum_input" placeholder="Geburtsdatum">
+        <input type="password" formControlName="password" class="password_input" id="password_input" #passwordInput placeholder="Passwort" required>
+        <input type="password" formControlName="passwordWiederholer" class="password_input" id="password_wiederholer_input"  #repeatPasswordInput placeholder="Passwort wiederholen" required>
+
+        <div class="sign_in_bestätigen">
+          <div class="div-error">
+            <p *ngIf="error" class="error">{{ error }}</p>
+          </div>
+
+          <div>
+            <button class="anmelden_button" id="anmelden_button" type="submit">
+              Konto erstellen
+            </button>
+            <a class="nav-link" routerLink="/login" routerLinkActive="activebutton">Login?</a>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </section>
+
+  <section *ngIf="isLoggedIn">
+    <div class="anmeldung_div">
+      <p>Sie sind bereits eingeloggt.</p>
+      <button class="anmelden_button" (click)="logout()">Ausloggen</button>
+    </div>
+  </section>
+
+
+</body>
+
+
+<app-footer></app-footer>

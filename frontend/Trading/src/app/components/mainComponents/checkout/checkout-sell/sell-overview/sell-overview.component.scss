@@ -1,0 +1,174 @@
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+/*  profile  --------------------------- */
+
+
+
+#profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #c4e1ff;
+    width: 100%;
+}
+
+#profile mat-card{
+    width: 100%;
+}
+#profile mat-card-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding-left: 2em;
+}
+
+.mat-step-header:hover {
+    display: initial;
+}
+
+#profile ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile ul li {
+    list-style: none;
+    align-items: center;
+}
+
+#username_label {
+    font-size: 16px;
+
+}
+
+#Budget_label {
+    font-size: 16px;
+}
+
+#Budget_label_input {
+    font-size: 16px;
+}
+
+
+#first td{
+    text-align: right;
+}
+
+
+
+/*  content  --------------------------- */
+
+
+#content form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+#content mat-card-table {
+    width: 100%;
+}
+
+#content mat-card {
+    width: 100%;
+}
+
+#content mat-card-header {
+    font-size: 1.4em;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+    border-bottom: 1px solid black;
+}
+
+#content mat-card-actions {
+    display: flex;
+    align-items: center;
+}
+
+#content mat-card-content>table:first-child {
+    margin-bottom: 10%;
+}
+
+#content table {
+    font-size: 19px;
+    width: 100%;
+    padding: 0.2em 0;
+}
+
+#content table th {
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
+}
+
+#content table td {
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
+}
+
+#content tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#sum {
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    padding: 0.2em 0;
+    margin-top: 0.2em;
+    font-size: 1.4em;
+}
+
+
+
+
+
+
+
+/*  trade  --------------------------- */
+
+
+#sell {
+    font-size: 1.6em;
+    width: 50%;
+    height: 100%;
+    background-color: coral;
+    border-radius: 0.2em;
+    border: none;
+    padding: 0.4em;
+    margin: 0.2em 0.4em;
+}
+
+#sell:hover {
+    background-color: rgb(255, 88, 27);
+    cursor: pointer;
+}
+
+
+#cancel {
+    font-size: 1.4em;
+    width: 27.5%;
+    background-color: lightgray;
+    border-radius: 0.2em;
+    border: none;
+    padding: 0.4em;
+    margin: 0.2em 0.4em;
+}
+
+#cancel:hover {
+    background-color: rgb(172, 172, 172);
+    cursor: pointer;
+}
+

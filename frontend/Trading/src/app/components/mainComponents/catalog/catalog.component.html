@@ -1,0 +1,32 @@
+<div class="catalog-content">
+  <app-header></app-header>
+
+    <div class="content">
+      <div class="search-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Suche nach Aktien</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto" #searchInput (keyup.enter)="onSearch(searchInput.value)" (input)="clearResults()">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let stock of stocks" [value]="stock?.name" (onSelectionChange)="goToStockPage(stock)">
+                    {{ stock?.name }} - {{ stock?.exchangeShortName }}
+                </mat-option>
+            </mat-autocomplete>
+            <button mat-icon-button matSuffix (click)="onSearch(searchInput.value)">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-switch">
+      <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleDisplay(group.value)" aria-label="Font Style">
+        <mat-button-toggle value="mostActive">Beliebteste</mat-button-toggle>
+        <mat-button-toggle value="favourites">Favoriten</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <app-catalog-content [view]="view"></app-catalog-content>
+
+
+    <app-footer></app-footer>
+</div>

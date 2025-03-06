@@ -1,0 +1,99 @@
+<div class="table-container" *ngIf="view == 1">
+    <table mat-table [dataSource]="assetData" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element?.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fav">
+            <th mat-header-cell *matHeaderCellDef> Favorit </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="toggleFavorite(element)">
+                <mat-icon>{{ element?.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef> Firmenname </th>
+            <td mat-cell *matCellDef="let element"> {{element?.companyName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Preis </th>
+            <td mat-cell *matCellDef="let element"> {{element?.price | currency}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="changes">
+            <th mat-header-cell *matHeaderCellDef> Änderungsrate </th>
+            <td mat-cell *matCellDef="let element" [ngStyle]="{'color': element?.changes >= 0 ? 'green' : 'red'}"> {{element?.changes}} %</td>
+        </ng-container>
+
+        <ng-container matColumnDef="mktCap">
+            <th mat-header-cell *matHeaderCellDef> Marktkapital </th>
+            <td mat-cell *matCellDef="let element"> {{element?.mktCap | currency }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Handeln </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="trade(element)"><mat-icon>arrow_right_alt</mat-icon></button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+
+
+<div class="table-container" *ngIf="view == 3">
+    <table mat-table [dataSource]="favData" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element?.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fav">
+            <th mat-header-cell *matHeaderCellDef> Favorit </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="toggleFavorite(element)">
+                <mat-icon> {{ element.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef> Firmenname </th>
+            <td mat-cell *matCellDef="let element"> {{element?.companyName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Preis </th>
+            <td mat-cell *matCellDef="let element"> {{element?.price | currency}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="changes">
+            <th mat-header-cell *matHeaderCellDef> Änderungsrate </th>
+            <td mat-cell *matCellDef="let element" [ngStyle]="{'color': element?.changes >= 0 ? 'green' : 'red'}"> {{element?.changes}} %</td>
+        </ng-container>
+
+        <ng-container matColumnDef="mktCap">
+            <th mat-header-cell *matHeaderCellDef> Marketcap </th>
+            <td mat-cell *matCellDef="let element"> {{element?.mktCap | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Handeln </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="trade(element)"><mat-icon>arrow_right_alt</mat-icon></button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

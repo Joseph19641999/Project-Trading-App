@@ -1,0 +1,165 @@
+
+
+
+
+<section id="profile">
+
+    <mat-card>
+        <mat-card-content>
+            <div>
+                <label id="username_label">{{userData?.vorname}} {{userData?.nachname}}</label>
+            </div>
+
+            <div>
+                <ul>
+                    <li><label id="Budget_label">Budget:</label></li>
+                    <li><label id="Budget_label_input" style="padding-left: 10px">{{userData?.budget | currency}}</label></li>
+                </ul>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</section>
+
+
+
+<section id="content">
+    <mat-stepper linear #stepper>
+
+
+
+        <mat-step [stepControl]="firstFormGroup" [editable]="false">
+            <ng-template matStepLabel>Verkauf</ng-template>
+
+            <form [formGroup]="firstFormGroup" id="first">
+
+                <mat-card class="example-card">
+
+                    <mat-card-header>
+                        <mat-card-subtitle *ngIf="stockData?.isFund">Fund</mat-card-subtitle>
+                        <mat-card-subtitle *ngIf="!stockData?.isFund">Aktie</mat-card-subtitle>
+                        <mat-card-title>Verkaufsübersicht</mat-card-title>
+                    </mat-card-header>
+
+
+                    <mat-card-content>
+
+                        <table>
+                            <tr>
+                                <th>name</th>
+                                <td>{{stockData?.companyName}}</td>
+                            </tr>
+                            <tr>
+                                <th>symbol</th>
+                                <td>{{stockData?.symbol}}</td>
+                            </tr>
+                            <tr>
+                                <th>art</th>
+                                <td *ngIf="stockData?.isFund">Fund</td>
+                                <td *ngIf="!stockData?.isFund">Aktien</td>
+                            </tr>
+                        </table>
+
+                        <table>
+                            <tr>
+                                <th>Im Besitz</th>
+                                <td>{{ userStockData?.menge }}</td>
+                            </tr>
+
+                        </table>
+
+                        <table>
+                            <tr>
+                                <th>Aktueller Preis</th>
+                                <td>{{ stockData?.price | currency }}</td>
+                            </tr>
+                            <tr>
+                                <th>x Anzahl</th>
+                                <td class="content-upper-info-spinbox">
+                                    <mat-form-field class="example-ripple-form-field">
+                                        <mat-label>Anzahl</mat-label>
+                                        <input matInput type="number" min="1" [max]="userStockData?.menge" placeholder="1" formControlName="quantity" (input)="calculateSum()">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr id="sum">
+                                <th>Summe</th>
+                                <td>{{ sum | currency }}</td>
+                            </tr>
+                        </table>
+
+
+
+                        <mat-divider></mat-divider>
+                    </mat-card-content>
+
+
+                    <mat-card-actions>
+                        <button mat-raised-button id="sell" color="primary" (click)="sellDialog()">Verkauf Bestätigen</button>
+                        <button mat-raised-button id="cancel" (click)="cancelDialog()">Abbrechen</button>
+                    </mat-card-actions>
+
+
+                    <mat-card-footer>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </mat-card-footer>
+
+
+
+                </mat-card>
+
+
+            </form>
+        </mat-step>
+
+
+
+
+
+        <mat-step [stepControl]="secondFormGroup" [editable]="false">
+            <ng-template matStepLabel>Abschluss</ng-template>
+
+            <mat-card class="example-card">
+
+
+
+                <mat-card-header>
+                    <mat-card-subtitle *ngIf="stockData?.isFund">Fund</mat-card-subtitle>
+                    <mat-card-subtitle *ngIf="!stockData?.isFund">Aktien</mat-card-subtitle>
+                    <mat-card-title>Verkauf Erfolgreich</mat-card-title>
+                </mat-card-header>
+
+
+                <mat-card-content>
+                    <table>
+                        <tr>
+                            <th>{{quantity}}x {{stockData?.symbol}} {{stockData?.companyName}}</th>
+                        </tr>
+                        <td>{{ sum | currency:'USD':'symbol' }}</td>
+                    </table>
+
+
+                    <mat-divider></mat-divider>
+                </mat-card-content>
+
+
+                <mat-card-actions>
+                    <button mat-button id="sell" (click)="closeWindow()">Schließen</button>
+                </mat-card-actions>
+
+
+                <mat-card-footer>
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </mat-card-footer>
+
+
+
+            </mat-card>
+
+        </mat-step>
+
+
+
+
+    </mat-stepper>
+</section>

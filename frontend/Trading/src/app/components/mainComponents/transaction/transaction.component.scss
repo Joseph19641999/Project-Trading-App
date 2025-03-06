@@ -1,0 +1,38 @@
+.main-transaction {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+            "a a a"
+            "b c c"
+            "b c c"
+            "d d d";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+}
+
+app-header{
+  margin: 0;
+  padding: 0;
+  grid-area: a;
+
+}
+
+app-side-bar{
+  padding: 0;
+  grid-area: b;
+}
+
+app-transaction-content{
+  margin: 0;
+  padding: 0;
+  grid-area: c;
+  height: max-content;
+}
+app-footer{
+  margin: 0;
+  padding: 0;
+  grid-area: d;
+}

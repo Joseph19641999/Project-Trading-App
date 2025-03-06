@@ -1,0 +1,22 @@
+#verkauf-div{
+  width: 100%;
+  height: max-content;
+}
+
+
+#verkauf-div table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+
+#verkauf-div th,
+#verkauf-div td, 
+#verkauf-div tr {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+

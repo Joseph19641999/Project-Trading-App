@@ -1,0 +1,86 @@
+.header_section {
+  background-color: #123456; 
+  color: white;
+  padding: 18px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.navbar-brand {
+  margin-left: 20px; 
+}
+
+.navbar-brand span {
+  color: white;
+  text-decoration: none;
+  font-size: 3em;
+  width: 15%;
+}
+
+.navbar-brand {
+  text-decoration: none; 
+  display: inline-block; 
+  position: relative; 
+}
+
+.navbar-toggler {
+  border: none;
+  background-color: transparent; 
+}
+
+.navbar-nav {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  align-items: center; 
+}
+
+.navbar-nav .nav-link {
+  color: white; 
+  padding: 10px 20px; 
+  text-decoration: none; 
+  background-color: #234567; 
+  margin-left: 10px; 
+  margin-right: 10px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+  border-radius: 6px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #345678; 
+}
+
+.material-icons {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 24px;
+}
+
+.account-button {
+  background-color: #234567; 
+  color: white;
+  margin-left: 10px; 
+  margin-right: 20px;
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.account-button:hover {
+  background-color: #345678; 
+}
+
+.account-button mat-icon {
+  margin: 0; 
+  font-size: 26px;
+}
+  

@@ -1,0 +1,38 @@
+.main-asset {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "a a a"
+        "b b b"
+        "c c c"
+        "d d d";
+    grid-template-rows: auto 1fr auto; 
+    grid-template-columns: auto 1fr;
+}
+
+app-header{
+    margin: 0;
+    padding: 0;
+    grid-area: a;
+}
+
+app-asset-overview{
+    margin: 0;
+    padding: 0;
+    grid-area: b;
+}
+
+app-asset-details{
+    margin: 0;
+    padding: 0;
+    grid-area: c;
+}
+
+app-footer{
+    margin: 0;
+    padding: 0;
+    grid-area: d;
+}

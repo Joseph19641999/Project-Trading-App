@@ -1,0 +1,307 @@
+$titelFontsize: 32px;
+$letterColor: black;
+$disabledButtonColor: #333;
+$disabledLetterColor: #666;
+$signoutColor: #E88858;
+$listBackgroundColor: #FF9E15;
+$submitButtonColor: rgb(24, 119, 242);
+$cancelButtonColor: rgb(205, 32, 31);
+$userInforBorderBottom: 40vw;
+$box-shadow-value-wrap: 3px 3px 3px rgb(120, 144, 156);
+$box-shadow-value-content: 2px 2px 2px rgb(120, 144, 156);
+
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    color: $letterColor;
+}
+
+@mixin flexLayout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: $letterColor;
+}
+
+@mixin flexLayoutColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+
+@mixin flexLayoutColumnCenter {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+
+}
+
+@mixin buttonLayout {
+    background-color: green;
+    border-radius: 0.8rem;
+    color: white;
+    width: 6rem;
+    height: 1.9rem;
+    border-width: 0px;
+    border-color: none;
+    border-style: none;
+}
+
+@mixin buttonClickedEffect{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@mixin frameBorderStyle {
+    border: 2px solid rgb(176, 190, 197);
+    padding: 1em;
+}
+
+.profileMainLayout {
+    background-color: white;
+    padding: 3rem 5rem;
+
+    .profileTitel {
+
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+
+    }
+}
+
+.usernameProfile {
+
+    @include flexLayoutColumn();
+    box-shadow:
+        0px 10px 10px 0px rgb(120, 144, 156);
+    padding: 3rem 15rem;
+    width: 100%;
+
+    a { padding: 1em;}
+
+    .privateDataUsername {
+
+        padding: 2em;
+        box-shadow:
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156);
+
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: $userInforBorderBottom;
+
+        .changeEmail  {
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow:
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156),
+            0px 3px 3px 0px rgb(120, 144, 156),
+        }
+
+    }
+
+    .changePrivateInforButtonWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        #usernameInforChangeSubmit{
+            @include buttonLayout();
+            background-color: $submitButtonColor;
+
+            &:hover{
+                @include buttonClickedEffect();
+            }
+        }
+    }
+
+    #currentPasswordField {
+        box-shadow:
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156);
+        padding: 2em;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: $userInforBorderBottom;
+    }
+
+    .matchPasswordStatus {
+        text-align: center;
+    }
+
+    .changePasswordButtonWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .confirmChangePasswordButton {
+            @include buttonLayout();
+            &:hover{
+                @include buttonClickedEffect();
+            }
+            background-color: $submitButtonColor;
+        }
+    }
+
+    .emailChangeSuccess, .passwordChangeSuccess {
+        text-align: center;
+        padding: 1.5rem;
+        color: rgb(100, 221, 23);
+        border-left: 5px solid rgb(100, 221, 23);
+        margin-top: 1rem;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: slideIn 5s ease forwards;
+    }
+
+    .passwordChangeSuccess {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-top: 0;
+        width: 100%;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+.form_row {
+    display: flex;
+    align-items: center;
+
+    .displayUserInfor {
+        flex: 1;
+    }
+    label {
+        flex: 0 0 auto;
+        width: 150px;
+        text-align: left;
+    }
+    input {
+        flex: 1;
+        width: 20rem;
+        height: 2rem;
+        border-radius: 2px;
+    }
+}
+
+.usernameProfile__password {
+    border-radius: 10px;
+    box-shadow:
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    width: $userInforBorderBottom;
+}
+
+.usernameBudget{
+    width: $userInforBorderBottom;
+    margin-bottom: 1rem;
+
+    .layoutWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em;
+        box-shadow:
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156),
+        0px 3px 3px 0px rgb(120, 144, 156);
+    }
+
+    #budgetCharge {
+        @include buttonLayout();
+        background-image: linear-gradient(to right, red, orange);
+        width: 8rem;
+        &:hover {
+            @include buttonClickedEffect();
+        }
+    }
+}
+
+.budgetChargeLayout {
+
+    @include flexLayoutColumnCenter();
+
+    border-radius: 10px;
+    box-shadow:
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156),
+    0px 3px 3px 0px rgb(120, 144, 156);
+    margin: 1.5rem 0;
+    padding: 3rem 2rem;
+
+
+    #budgetChargeLayout__titel{
+        font-size: 25px;
+        margin-bottom: 4rem;
+    }
+
+    input {
+        margin-bottom: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .chargeBudgetButtonStatus {
+
+        @include flexLayout();
+
+        .chargeBudgetButtonCommit {
+            @include buttonLayout();
+            background-color: $submitButtonColor;
+
+            &:hover{
+                @include buttonClickedEffect();
+            }
+        }
+
+        .chargeBudgetButtonCommit:disabled,
+        .chargeBudgetButtonCommit:disabled:hover {
+            cursor: not-allowed;
+            background-color: $disabledButtonColor;
+            color: $disabledLetterColor;
+        }
+
+        .chargeBudgetButtonCancel {
+            @include buttonLayout();
+            background-color: orange;
+
+            &:hover{
+                @include buttonClickedEffect();
+            }
+        }
+    }
+
+}
+.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 24px;
+}
+
+

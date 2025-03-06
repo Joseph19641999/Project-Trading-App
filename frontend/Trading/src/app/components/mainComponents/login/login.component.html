@@ -1,0 +1,81 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="#">
+          <span>XBörse</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register" routerLinkActive="activebutton">Registrieren</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <section *ngIf="!isLoggedIn">
+
+    <div class="home_zurück">
+      <i class="fas fa-arrow-left"></i>
+      <a class="nav-link-zuruck" routerLink="/homepage" routerLinkActive="activebutton">Home</a>
+    </div>
+
+    <div class="anmeldung_div">
+
+      <p>Anmeldung</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login_process()">
+
+
+        <div class="user_daten_div">
+          <input formControlName="email" class="username_input" placeholder="Email" required>
+          <input type="password" formControlName="password" class="password_input" placeholder="Passwort" required>
+        </div>
+
+        <div class="div-error">
+          <p *ngIf="error" class="error">{{ error }}</p>
+        </div>
+
+        <div class="sign_in_bestätigen">
+
+          <div>
+            <button type="submit" class="anmelden_button" id="anmelden_button">
+              Anmelden
+            </button>
+            <a class="nav-link" routerLink="/register" routerLinkActive="activebutton">registrieren?</a>
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <section *ngIf="isLoggedIn">
+    <div class="anmeldung_div">
+      <p>Sie sind bereits eingeloggt.</p>
+      <button class="anmelden_button" (click)="logout()">Ausloggen</button>
+    </div>
+  </section>
+  
+</body>
+
+
+<app-footer></app-footer>

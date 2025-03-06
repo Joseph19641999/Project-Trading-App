@@ -1,0 +1,89 @@
+.homepage {
+  color: #fff;
+  background: #021B37;
+}
+
+.main-banner {
+  position: relative;
+  height: 70vh;
+  background-image: url('../../../../../assets/homepage.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 50, 0.5);
+}
+
+.main-banner .text-box {
+  text-align: center;
+  z-index: 10;
+}
+
+.main-banner h1 {
+  font-size: 3rem;
+}
+
+.main-banner p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.market-stats {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  padding-left: 80px;
+  background: rgba(0, 0, 100, 0.3);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat .label {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.stat .value {
+  font-size: 1.5rem;
+}
+
+
+
+
+.btn-primary, .btn-secondary {
+  color: #fff;
+  background: #046B99;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  background: #154d67;
+
+}
+
+
+
+.mat-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.mat-cell {
+  flex: 1;
+}

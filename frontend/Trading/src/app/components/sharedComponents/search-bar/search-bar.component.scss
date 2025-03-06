@@ -1,0 +1,11 @@
+.search-container {
+    margin: 20px; 
+    display: flex;
+    justify-content: center; 
+  }
+  
+  mat-form-field {
+    width: 100%;
+    max-width: 500px; 
+    height: 100%;
+  }
